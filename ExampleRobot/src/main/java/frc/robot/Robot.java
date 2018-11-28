@@ -31,7 +31,8 @@ public class Robot extends IterativeRobot {
    * used for any initialization code.
    */
   @Override
-  public void robotInit() {
+  public void robotInit() 
+  {
   }
 
   /**
