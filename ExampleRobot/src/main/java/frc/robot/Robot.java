@@ -62,7 +62,12 @@ public class Robot extends IterativeRobot {
    * This function is called once each time the robot enters teleoperated mode.
    */
   @Override
-  public void teleopInit() {
+  public void teleopInit() 
+  
+{
+
+ 
+
   }
 
   /**
