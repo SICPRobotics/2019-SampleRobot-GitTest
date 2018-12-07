@@ -7,34 +7,24 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 /**
  * Add your docs here.
  */
-public class DriveTrain extends Subsystem 
+public class DriveTrain extends PIDSubsystem 
 {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  WPI_TalonSRX frontRight, frontLeft, backRight, backLeft;
-  SpeedControllerGroup rightDrive, leftDrive;
-
-  public DriveTrain()
+  /**
+   * Add your docs here.
+   */
+  public DriveTrain() 
   {
-    frontRight = new WPI_TalonSRX(RobotMap.map_frontRightMotor);
-    frontLeft = new WPI_TalonSRX(RobotMap.map_frontLeftMotor);
-
-    backRight = new WPI_TalonSRX(RobotMap.map_backRightMotor);
-    backLeft = new WPI_TalonSRX(RobotMap.map_backLeftMotor);
-
-    rightDrive = new SpeedControllerGroup(frontRight, backRight);
-    leftDrive = new SpeedControllerGroup(frontLeft, backLeft);
-
+    // Intert a subsystem name and PID values here
+    super("SubsystemName", 1, 2, 3);
+    // Use these to get going:
+    // setSetpoint() - Sets where the PID controller should move the system
+    // to
+    // enable() - Enables the PID controller.
   }
 
   @Override
@@ -44,8 +34,19 @@ public class DriveTrain extends Subsystem
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void tankDrive(Joystick joystickRight, Joystick joystickLeft)
+  @Override
+  protected double returnPIDInput() 
   {
-    
+    // Return your input value for the PID loop
+    // e.g. a sensor, like a potentiometer:
+    // yourPot.getAverageVoltage() / kYourMaxVoltage;
+    return 0.0;
+  }
+
+  @Override
+  protected void usePIDOutput(double output) 
+  {
+    // Use output to drive your system, like a motor
+    // e.g. yourMotor.set(output);
   }
 }

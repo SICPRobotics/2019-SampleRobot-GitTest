@@ -27,4 +27,6 @@ public class RobotMap
   public static int map_frontLeftMotor = 1;
   public static int map_backRightMotor = 2;
   public static int map_backLeftMotor = 3;
+
+  public static int map_joystickAxis = 0;
 }
